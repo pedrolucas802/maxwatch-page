@@ -16,7 +16,7 @@ Live at https://maxwatch.pro (bought at Hostinger 2026-11-01, renews yearly). DN
 
 - Text lives twice in `index.html`: `<span class="pt">` and `<span class="en">`. Change both.
 - Animations are CSS only (`style.css`, bottom), and pause when off screen or when the visitor asks for reduced motion. `lang.js` handles the language switch, scroll reveals, the scroll-lit statement and the "Saiba mais" popups.
-- Download buttons: replace `href="#baixar"` with the `.tar.gz` link and remove `disabled` / `aria-disabled`.
+- Download buttons point to `releases/latest/download/maxwatch-linux-x86_64.tar.gz` and `...-aarch64.tar.gz`. To ship a new version: make a release in this repo (not marked pre-release) and attach the two tarballs from the maxwatch "Linux package" workflow, renamed to exactly those names.
 
 ## Brand and domain checklist
 
