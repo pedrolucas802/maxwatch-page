@@ -8,11 +8,11 @@
     wait: ['Verificando…', 'Checking…'],
     old: ['Este navegador não consegue desbloquear. Abra https://maxwatch.pro num Chrome, Safari ou Firefox atualizado.', 'This browser cannot unlock. Open https://maxwatch.pro in an up-to-date Chrome, Safari or Firefox.'],
     hi: ['Olá, ', 'Hi, '], ver: ['Versão ', 'Version '],
-    how: ['No computador Linux onde o MaxWatch vai rodar, abra o Terminal e cole o comando do seu processador. Ele baixa, abre o pacote com a sua chave e instala.', 'On the Linux computer that will run MaxWatch, open the Terminal and paste the command for your processor. It downloads, opens the package with your key and installs.'],
+    how: ['No computador Linux onde o MaxWatch vai funcionar, abra o Terminal e cole o comando do tipo de processador dele. O comando baixa o pacote, abre com a sua chave e instala tudo.', 'On the Linux computer that will run MaxWatch, open the Terminal and paste the command for your processor. It downloads, opens the package with your key and installs.'],
     x86_64: ['PC ou mini PC Intel / AMD (x86_64)', 'Intel / AMD PC or mini PC (x86_64)'],
     aarch64: ['ARM64 (VM em Mac Apple Silicon, PCs ARM)', 'ARM64 (VM on an Apple Silicon Mac, ARM PCs)'],
     copy: ['Copiar', 'Copy'], copied: ['Copiado', 'Copied'],
-    after: ['Depois abra http://localhost:8080 no navegador desse computador. Não compartilhe sua chave.', 'Then open http://localhost:8080 in that computer’s browser. Do not share your key.']
+    after: ['Quando terminar, abra http://localhost:8080 no navegador desse computador. A chave é pessoal: não compartilhe.', 'Then open http://localhost:8080 in that computer’s browser. Do not share your key.']
   };
   function t(k) { return T[k][document.documentElement.lang === 'en' ? 1 : 0]; }
   function b64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
