@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MaxWatch · Segurança residencial que fica em casa</title>
+<meta name="description" content="MaxWatch: segurança residencial inteligente que roda dentro da sua casa. Detecção de pessoas, sensores ESP32 e alertas no Telegram. O vídeo nunca sai de casa.">
+<meta property="og:title" content="MaxWatch">
+<meta property="og:description" content="Segurança residencial inteligente que roda dentro da sua casa. O vídeo nunca sai de casa.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><img src="favicon.svg" alt="" width="32" height="32"> MaxWatch</a>
+  <nav>
+    <a href="#como"><span class="pt">Como funciona</span><span class="en">How it works</span></a>
+    <a href="#recursos"><span class="pt">Recursos</span><span class="en">Features</span></a>
+    <a href="#baixar"><span class="pt">Baixar</span><span class="en">Download</span></a>
+    <button id="lang" type="button" aria-label="Idioma / Language"><span class="pt">EN</span><span class="en">PT</span></button>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <p class="tag"><span class="pt">Beta em breve</span><span class="en">Beta coming soon</span></p>
+  <h1><span class="pt">Segurança para a sua casa. O vídeo fica nela.</span><span class="en">Security for your home. The video stays in it.</span></h1>
+  <p class="lead"><span class="pt">O MaxWatch roda num pequeno computador dentro da sua casa. Ele vigia as câmeras que você já tem, entende quando é uma pessoa e avisa você no Telegram, sem mandar nenhuma imagem para a nuvem.</span><span class="en">MaxWatch runs on a small computer inside your home. It watches the cameras you already have, tells when it is a person and alerts you on Telegram, without sending any footage to the cloud.</span></p>
+  <p><a class="btn" href="#baixar"><span class="pt">Quero testar o beta</span><span class="en">I want to try the beta</span></a></p>
+
+  <figure class="shot" aria-label="Painel de demonstração">
+    <svg viewBox="0 0 640 360" role="img" aria-label="Ilustração do painel com três câmeras e um alerta">
+      <rect width="640" height="360" rx="16" fill="#0d1b33"/>
+      <g fill="#16284a"><rect x="24" y="24" width="190" height="120" rx="8"/><rect x="225" y="24" width="190" height="120" rx="8"/><rect x="426" y="24" width="190" height="120" rx="8"/></g>
+      <rect x="24" y="156" width="392" height="180" rx="8" fill="#16284a"/>
+      <rect x="426" y="156" width="190" height="180" rx="8" fill="#16284a"/>
+      <g fill="none" stroke="#12b5a5" stroke-width="2"><rect x="272" y="60" width="40" height="70" rx="3"/></g>
+      <text x="272" y="54" fill="#12b5a5" font-size="11" font-family="sans-serif">person 0.91</text>
+      <circle cx="44" cy="44" r="4" fill="#12b5a5"/><circle cx="245" cy="44" r="4" fill="#12b5a5"/><circle cx="446" cy="44" r="4" fill="#12b5a5"/>
+      <text x="40" y="190" fill="#9fb3d1" font-size="14" font-family="sans-serif">Casa demo · alarme armado</text>
+      <text x="446" y="190" fill="#9fb3d1" font-size="14" font-family="sans-serif">Alertas</text>
+      <rect x="446" y="204" width="150" height="26" rx="6" fill="#2f6fed"/><rect x="446" y="238" width="120" height="26" rx="6" fill="#0d1b33"/>
+    </svg>
+    <figcaption><span class="pt">Ilustração. Imagens reais do painel (casa de demonstração) entram aqui.</span><span class="en">Illustration. Real dashboard images (demo house) go here.</span></figcaption>
+  </figure>
+</section>
+
+<section id="como">
+  <h2><span class="pt">Como funciona</span><span class="en">How it works</span></h2>
+  <ol class="steps">
+    <li><b><span class="pt">Um hub em casa</span><span class="en">A hub at home</span></b><span class="pt">Um mini PC na sua rede recebe as câmeras e os sensores. Nada depende de servidor nosso para vigiar.</span><span class="en">A mini PC on your network takes in the cameras and sensors. Watching never depends on a server of ours.</span></li>
+    <li><b><span class="pt">Detecção de pessoas</span><span class="en">Person detection</span></b><span class="pt">Um modelo de visão (YOLO) roda no próprio hub e ignora o que não é gente, com um aviso por visita.</span><span class="en">A vision model (YOLO) runs on the hub itself and ignores anything that is not a person, with one alert per visit.</span></li>
+    <li><b><span class="pt">Alerta no Telegram</span><span class="en">Telegram alert</span></b><span class="pt">Você recebe uma foto do momento. Com o alarme armado, um sensor e uma câmera precisam concordar para disparar a sirene.</span><span class="en">You get a photo of the moment. With the alarm armed, a sensor and a camera must agree before the siren sounds.</span></li>
+  </ol>
+</section>
+
+<section id="recursos" class="alt">
+  <h2><span class="pt">Recursos</span><span class="en">Features</span></h2>
+  <ul class="cards">
+    <li><b><span class="pt">Vídeo fica em casa</span><span class="en">Video stays home</span></b><span class="pt">Sem gravação na nuvem. Pensado para a LGPD.</span><span class="en">No cloud recording. Built with privacy law in mind.</span></li>
+    <li><b><span class="pt">Câmeras que você já tem</span><span class="en">Cameras you already have</span></b><span class="pt">Câmeras RTSP comuns, como as Yoosee, ao vivo no navegador e no celular.</span><span class="en">Standard RTSP cameras, such as Yoosee, live in the browser and on your phone.</span></li>
+    <li><b><span class="pt">Sensores ESP32</span><span class="en">ESP32 sensors</span></b><span class="pt">Sensores e sirenes baratos, adicionados pelo painel.</span><span class="en">Low-cost sensors and sirens, added from the dashboard.</span></li>
+    <li><b><span class="pt">Clipes e histórico</span><span class="en">Clips and history</span></b><span class="pt">Cada visita com foto e clipe curto, guardados num disco que você escolhe.</span><span class="en">Every visit with a photo and short clip, kept on a drive you choose.</span></li>
+    <li><b><span class="pt">Tudo pelo painel</span><span class="en">All from the dashboard</span></b><span class="pt">Configuração em português, sem Terminal e sem arquivos.</span><span class="en">Setup in Portuguese or English, no Terminal and no files.</span></li>
+    <li><b><span class="pt">Acesso remoto privado</span><span class="en">Private remote access</span></b><span class="pt">Veja o painel de fora de casa por uma rede privada, sem abrir portas no roteador.</span><span class="en">See the dashboard away from home over a private network, no router ports opened.</span></li>
+  </ul>
+  <p class="note"><span class="pt">Em fase de testes: o produto roda hoje numa casa real e está sendo preparado para outras.</span><span class="en">In testing: the product runs in a real home today and is being prepared for others.</span></p>
+</section>
+
+<section id="baixar">
+  <h2><span class="pt">Baixar o beta</span><span class="en">Download the beta</span></h2>
+  <div class="download">
+    <p><span class="pt">O instalador para Mac ainda está em preparação. Escreva para o contato abaixo e avisamos quando o beta sair.</span><span class="en">The Mac installer is still being prepared. Write to the contact below and we will tell you when the beta is out.</span></p>
+    <!-- TODO: trocar este botão pelo link de download do beta -->
+    <a class="btn disabled" aria-disabled="true"><span class="pt">Download (em breve)</span><span class="en">Download (soon)</span></a>
+    <p class="note"><span class="pt">Contato: <a href="mailto:contato@SEU-DOMINIO">contato@SEU-DOMINIO</a></span><span class="en">Contact: <a href="mailto:contato@SEU-DOMINIO">contato@SEU-DOMINIO</a></span></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><span class="pt">MaxWatch leva o nome do Max, o primeiro cachorro do criador. © 2026</span><span class="en">MaxWatch is named after Max, the creator's first dog. © 2026</span></p>
+</footer>
+<script src="lang.js"></script>
+</body>
+</html>
