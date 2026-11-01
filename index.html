@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MaxWatch · Segurança residencial que fica em casa</title>
-<meta name="description" content="MaxWatch: segurança residencial inteligente que roda dentro da sua casa. Detecção de pessoas, sensores ESP32 e alertas no Telegram. O vídeo nunca sai de casa.">
+<meta name="description" content="MaxWatch: segurança residencial inteligente que roda dentro da sua casa. IA local, alertas em tempo real, sensores ESP32 e radar mmWave. O vídeo nunca sai de casa.">
 <meta property="og:title" content="MaxWatch">
 <meta property="og:description" content="Segurança residencial inteligente que roda dentro da sua casa. O vídeo nunca sai de casa.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://maxwatch.pro/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,66 +16,233 @@
 <header class="top">
   <a class="brand" href="#"><img src="favicon.svg" alt="" width="32" height="32"> MaxWatch</a>
   <nav>
-    <a href="#como"><span class="pt">Como funciona</span><span class="en">How it works</span></a>
     <a href="#recursos"><span class="pt">Recursos</span><span class="en">Features</span></a>
+    <a href="#como"><span class="pt">Como funciona</span><span class="en">How it works</span></a>
     <a href="#baixar"><span class="pt">Baixar</span><span class="en">Download</span></a>
-    <button id="lang" type="button" aria-label="Idioma / Language"><span class="pt">EN</span><span class="en">PT</span></button>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" lang="pt-BR">PT</button><button type="button" data-lang="en" lang="en">EN</button>
+    </div>
   </nav>
 </header>
 
 <main>
-<section class="hero">
+<section class="hero reveal">
   <p class="tag"><span class="pt">Beta em breve</span><span class="en">Beta coming soon</span></p>
-  <h1><span class="pt">Segurança para a sua casa. O vídeo fica nela.</span><span class="en">Security for your home. The video stays in it.</span></h1>
-  <p class="lead"><span class="pt">O MaxWatch roda num pequeno computador dentro da sua casa. Ele vigia as câmeras que você já tem, entende quando é uma pessoa e avisa você no Telegram, sem mandar nenhuma imagem para a nuvem.</span><span class="en">MaxWatch runs on a small computer inside your home. It watches the cameras you already have, tells when it is a person and alerts you on Telegram, without sending any footage to the cloud.</span></p>
-  <p><a class="btn" href="#baixar"><span class="pt">Quero testar o beta</span><span class="en">I want to try the beta</span></a></p>
+  <h1><span class="pt">Segurança para a sua casa. <em>O vídeo fica nela.</em></span><span class="en">Security for your home. <em>The video stays in it.</em></span></h1>
+  <p class="lead"><span class="pt">O MaxWatch roda num pequeno computador dentro da sua casa. Ele vigia as câmeras que você já tem, entende quando é uma pessoa, cruza com seus sensores e avisa você no Telegram, sem mandar nenhuma imagem para a nuvem.</span><span class="en">MaxWatch runs on a small computer inside your home. It watches the cameras you already have, tells when it is a person, checks it against your sensors and alerts you on Telegram, without sending any footage to the cloud.</span></p>
+  <p class="cta"><a class="btn" href="#baixar"><span class="pt">Quero testar o beta</span><span class="en">I want to try the beta</span></a> <a class="btn ghost" href="#recursos"><span class="pt">Ver recursos</span><span class="en">See features</span></a></p>
 
-  <figure class="shot" aria-label="Painel de demonstração">
-    <svg viewBox="0 0 640 360" role="img" aria-label="Ilustração do painel com três câmeras e um alerta">
-      <rect width="640" height="360" rx="16" fill="#0d1b33"/>
-      <g fill="#16284a"><rect x="24" y="24" width="190" height="120" rx="8"/><rect x="225" y="24" width="190" height="120" rx="8"/><rect x="426" y="24" width="190" height="120" rx="8"/></g>
-      <rect x="24" y="156" width="392" height="180" rx="8" fill="#16284a"/>
-      <rect x="426" y="156" width="190" height="180" rx="8" fill="#16284a"/>
-      <g fill="none" stroke="#12b5a5" stroke-width="2"><rect x="272" y="60" width="40" height="70" rx="3"/></g>
-      <text x="272" y="54" fill="#12b5a5" font-size="11" font-family="sans-serif">person 0.91</text>
-      <circle cx="44" cy="44" r="4" fill="#12b5a5"/><circle cx="245" cy="44" r="4" fill="#12b5a5"/><circle cx="446" cy="44" r="4" fill="#12b5a5"/>
-      <text x="40" y="190" fill="#9fb3d1" font-size="14" font-family="sans-serif">Casa demo · alarme armado</text>
-      <text x="446" y="190" fill="#9fb3d1" font-size="14" font-family="sans-serif">Alertas</text>
-      <rect x="446" y="204" width="150" height="26" rx="6" fill="#2f6fed"/><rect x="446" y="238" width="120" height="26" rx="6" fill="#0d1b33"/>
+  <figure class="shot" aria-hidden="true">
+    <svg viewBox="0 0 640 360">
+      <rect width="640" height="360" rx="16" class="s-bg"/>
+      <g class="s-tile"><rect x="24" y="24" width="190" height="120" rx="8"/><rect x="225" y="24" width="190" height="120" rx="8"/><rect x="426" y="24" width="190" height="120" rx="8"/></g>
+      <g class="live"><circle cx="44" cy="40" r="4"/><circle cx="245" cy="40" r="4"/><circle cx="446" cy="40" r="4"/></g>
+      <text x="54" y="44" class="s-lbl">CAM 1</text><text x="255" y="44" class="s-lbl">CAM 2</text><text x="456" y="44" class="s-lbl">CAM 3</text>
+      <clipPath id="c2"><rect x="225" y="24" width="190" height="120" rx="8"/></clipPath>
+      <g clip-path="url(#c2)"><g class="walker">
+        <circle cx="0" cy="78" r="7" class="s-person"/><rect x="-8" y="87" width="16" height="34" rx="6" class="s-person"/>
+        <rect x="-16" y="64" width="32" height="64" rx="3" class="s-box"/>
+        <text x="-16" y="60" class="s-boxt"><tspan class="pt">pessoa</tspan><tspan class="en">person</tspan> 0.91</text>
+      </g></g>
+      <rect x="24" y="156" width="392" height="180" rx="8" class="s-tile"/>
+      <text x="40" y="184" class="s-h"><tspan class="pt">Casa · alarme armado</tspan><tspan class="en">Home · alarm armed</tspan></text>
+      <g class="s-zones"><rect x="40" y="200" width="110" height="56" rx="6"/><rect x="160" y="200" width="110" height="56" rx="6" class="z-hot"/><rect x="280" y="200" width="120" height="56" rx="6"/></g>
+      <text x="52" y="232" class="s-lbl"><tspan class="pt">Sala</tspan><tspan class="en">Living room</tspan></text>
+      <text x="172" y="232" class="s-lbl"><tspan class="pt">Portão</tspan><tspan class="en">Gate</tspan></text>
+      <text x="292" y="232" class="s-lbl"><tspan class="pt">Garagem</tspan><tspan class="en">Garage</tspan></text>
+      <g class="s-bars"><rect x="40" y="276" width="10" height="44" rx="2"/><rect x="56" y="290" width="10" height="30" rx="2"/><rect x="72" y="268" width="10" height="52" rx="2"/><rect x="88" y="296" width="10" height="24" rx="2"/><rect x="104" y="282" width="10" height="38" rx="2"/></g>
+      <rect x="426" y="156" width="190" height="180" rx="8" class="s-tile"/>
+      <text x="442" y="184" class="s-h"><tspan class="pt">Alertas</tspan><tspan class="en">Alerts</tspan></text>
+      <g class="toast"><rect x="442" y="198" width="158" height="40" rx="8" class="s-alert"/><text x="454" y="222" class="s-alertt"><tspan class="pt">Pessoa no portão</tspan><tspan class="en">Person at the gate</tspan></text></g>
+      <rect x="442" y="246" width="158" height="30" rx="6" class="s-old"/><rect x="442" y="284" width="130" height="30" rx="6" class="s-old"/>
     </svg>
-    <figcaption><span class="pt">Ilustração. Imagens reais do painel (casa de demonstração) entram aqui.</span><span class="en">Illustration. Real dashboard images (demo house) go here.</span></figcaption>
+    <figcaption><span class="pt">Ilustração animada do painel.</span><span class="en">Animated illustration of the dashboard.</span></figcaption>
   </figure>
 </section>
 
-<section id="como">
+<section class="statement" aria-label="MaxWatch">
+  <div class="stick">
+    <p class="pt">Pessoas, não sombras. Vídeo em casa, não na nuvem. Uma sirene que confere antes de tocar.</p>
+    <p class="en">People, not shadows. Video at home, not in the cloud. A siren that checks before it sounds.</p>
+  </div>
+</section>
+
+<section id="recursos" class="features">
+  <h2><span class="pt">O que o MaxWatch faz</span><span class="en">What MaxWatch does</span></h2>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker">Edge AI</p>
+      <h3><span class="pt">A inteligência roda na sua casa</span><span class="en">The intelligence runs in your home</span></h3>
+      <p><span class="pt">Um modelo de visão (YOLO) analisa as câmeras no próprio hub. Ele separa pessoas de sombras, folhas e bichos, e manda um aviso por visita, não um por foto. Nenhum vídeo vai para servidor nenhum.</span><span class="en">A vision model (YOLO) analyses the cameras on the hub itself. It tells people apart from shadows, leaves and animals, and sends one alert per visit, not one per frame. No video goes to any server.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Detecção só nas câmeras que você ligar.</span><span class="en">Detection only on the cameras you switch on.</span></li><li><span class="pt">Um alerta por visita, não um por foto.</span><span class="en">One alert per visit, not one per frame.</span></li><li><span class="pt">Eventos e fotos ficam 30 dias no próprio hub.</span><span class="en">Events and photos stay on the hub itself for 30 days.</span></li><li><span class="pt">Vigia mesmo sem internet; ela só é necessária para alertas e acesso remoto.</span><span class="en">Keeps watching without internet; it is only needed for alerts and remote access.</span></li></ul>
+    </div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 400 260">
+        <path d="M24 110 L140 40 L256 110 V236 H24 Z" class="house"/>
+        <text x="40" y="226" class="s-lbl"><tspan class="pt">sua casa</tspan><tspan class="en">your home</tspan></text>
+        <g transform="translate(46 140)"><rect width="40" height="26" rx="5" class="dev"/><circle cx="20" cy="13" r="7" class="lens"/></g>
+        <text x="40" y="186" class="s-lbl"><tspan class="pt">câmera</tspan><tspan class="en">camera</tspan></text>
+        <g class="pkts"><circle cx="94" cy="153" r="4"/><circle cx="94" cy="153" r="4"/><circle cx="94" cy="153" r="4"/></g>
+        <g transform="translate(170 128)"><rect width="50" height="50" rx="8" class="chip"/><rect x="12" y="12" width="26" height="26" rx="4" class="chip-in"/><text x="25" y="30" class="chip-t">AI</text></g>
+        <circle cx="195" cy="153" r="30" class="ring"/>
+        <text x="172" y="198" class="s-lbl">hub</text>
+        <g class="ok"><rect x="150" y="96" width="92" height="22" rx="11" class="ok-bg"/><text x="162" y="111" class="ok-t">✓ <tspan class="pt">pessoa</tspan><tspan class="en">person</tspan></text></g>
+        <path d="M256 92 Q300 60 318 70" class="wire-x"/>
+        <g transform="translate(300 40)"><path d="M20 38 a16 16 0 0 1 6-30 a20 20 0 0 1 38 4 a14 14 0 0 1 2 26 Z" class="cloud"/></g>
+        <g class="nox"><circle cx="290" cy="72" r="11"/><path d="M284 66 l12 12 M296 66 l-12 12"/></g>
+        <text x="300" y="104" class="s-lbl"><tspan class="pt">nuvem</tspan><tspan class="en">cloud</tspan></text>
+        <text x="272" y="200" class="big">0 MB</text>
+        <text x="272" y="220" class="s-lbl"><tspan class="pt">de vídeo enviado</tspan><tspan class="en">of video uploaded</tspan></text>
+      </svg>
+    </div>
+  </article>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker"><span class="pt">Alertas em tempo real</span><span class="en">Real-time alerts</span></p>
+      <h3><span class="pt">Você fica sabendo na hora, com foto</span><span class="en">You know right away, with a photo</span></h3>
+      <p><span class="pt">Quando o hub confirma uma pessoa, você recebe no Telegram a foto do momento e a câmera. Cada visita fica no histórico com foto e um clipe curto.</span><span class="en">When the hub confirms a person, you get the photo of the moment and the camera on Telegram. Every visit stays in the history with a photo and a short clip.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Foto do momento no Telegram, com o nome da câmera.</span><span class="en">Photo of the moment on Telegram, with the camera name.</span></li><li><span class="pt">Clipe de cada visita: 5 s antes e 20 s depois.</span><span class="en">A clip of each visit: 5 s before and 20 s after.</span></li><li><span class="pt">Clipes num disco que você escolhe, guardados 30 dias.</span><span class="en">Clips on a drive you choose, kept for 30 days.</span></li><li><span class="pt">Aviso quando o disco chega a 90% de uso.</span><span class="en">A warning when the drive reaches 90% full.</span></li></ul>
+    </div>
+    <div class="scene alerts" aria-hidden="true">
+      <ol class="flow">
+        <li><span class="pt">Câmera vê movimento</span><span class="en">Camera sees motion</span></li>
+        <li><span class="pt">IA confirma: pessoa</span><span class="en">AI confirms: person</span></li>
+        <li><span class="pt">Alerta no Telegram</span><span class="en">Telegram alert</span></li>
+      </ol>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="notif">
+          <b>MaxWatch</b><small><span class="pt">agora</span><span class="en">now</span></small>
+          <p><span class="pt">🚨 Pessoa no portão · CAM 2</span><span class="en">🚨 Person at the gate · CAM 2</span></p>
+          <div class="photo"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker"><span class="pt">Câmeras e hardware</span><span class="en">Cameras and hardware</span></p>
+      <h3><span class="pt">Use o que você já tem</span><span class="en">Use what you already have</span></h3>
+      <p><span class="pt">Câmeras IP comuns (RTSP, como as Yoosee) e placas ESP32 baratas com sensores e sirenes. O painel acha os aparelhos na sua rede e guia a instalação em três passos.</span><span class="en">Standard IP cameras (RTSP, such as Yoosee) and low-cost ESP32 boards with sensors and sirens. The dashboard finds devices on your network and walks you through setup in three steps.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Câmeras IP com RTSP, como as Yoosee.</span><span class="en">IP cameras with RTSP, such as Yoosee.</span></li><li><span class="pt">O painel procura aparelhos na sua rede e mostra a marca.</span><span class="en">The dashboard scans your network and shows each device's brand.</span></li><li><span class="pt">Placas ESP32 conversam com o hub por MQTT, com senha.</span><span class="en">ESP32 boards talk to the hub over MQTT, with a password.</span></li><li><span class="pt">Assistente de três passos para cada aparelho novo.</span><span class="en">A three-step wizard for each new device.</span></li></ul>
+    </div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 400 260">
+        <g class="links"><path d="M200 130 L70 56"/><path d="M200 130 L330 56"/><path d="M200 130 L70 204"/><path d="M200 130 L330 204"/></g>
+        <g class="flows"><path d="M70 56 L200 130"/><path d="M330 56 L200 130"/><path d="M70 204 L200 130"/><path d="M330 204 L200 130"/></g>
+        <circle cx="200" cy="130" r="40" class="ring"/>
+        <g transform="translate(175 105)"><rect width="50" height="50" rx="10" class="chip"/><text x="25" y="31" class="chip-t">HUB</text></g>
+        <g transform="translate(46 40)"><rect width="48" height="32" rx="6" class="dev"/><circle cx="24" cy="16" r="9" class="lens"/></g>
+        <text x="36" y="92" class="s-lbl"><tspan class="pt">Câmeras IP</tspan><tspan class="en">IP cameras</tspan></text>
+        <g transform="translate(306 40)"><rect width="48" height="32" rx="4" class="esp"/><rect x="6" y="6" width="18" height="20" rx="2" class="esp-chip"/><g class="esp-pins"><rect x="30" y="8" width="12" height="3"/><rect x="30" y="15" width="12" height="3"/><rect x="30" y="22" width="12" height="3"/></g></g>
+        <text x="306" y="92" class="s-lbl">ESP32</text>
+        <g transform="translate(46 188)"><path d="M6 10 H18 L32 0 V32 L18 22 H6 Z" class="dev"/><path d="M38 8 Q44 16 38 24 M44 4 Q54 16 44 28" class="waves"/></g>
+        <text x="36" y="240" class="s-lbl"><tspan class="pt">Sirene</tspan><tspan class="en">Siren</tspan></text>
+        <g transform="translate(306 188)"><path d="M0 32 A32 32 0 0 1 48 32" class="radar-ico"/><path d="M8 32 A20 20 0 0 1 40 32" class="radar-ico"/><circle cx="24" cy="30" r="3" class="lens"/></g>
+        <text x="306" y="240" class="s-lbl">Radar</text>
+      </svg>
+    </div>
+  </article>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker"><span class="pt">Radar mmWave</span><span class="en">mmWave radar</span> <span class="soon"><span class="pt">em validação</span><span class="en">in validation</span></span></p>
+      <h3><span class="pt">Sente quem está parado, no escuro ou atrás da cortina</span><span class="en">Senses people standing still, in the dark or behind a curtain</span></h3>
+      <p><span class="pt">Um radar de 24 GHz (RD-03D) numa placa ESP32 percebe pessoas por ondas de rádio, onde um sensor de movimento comum (PIR) se cala. Ele acompanha até três pessoas com distância, ângulo e velocidade.</span><span class="en">A 24 GHz radar (RD-03D) on an ESP32 board senses people by radio waves, where a common motion sensor (PIR) goes quiet. It tracks up to three people with distance, angle and speed.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Radar RD-03D de 24 GHz numa placa ESP32.</span><span class="en">RD-03D 24 GHz radar on an ESP32 board.</span></li><li><span class="pt">Até três pessoas, com distância, ângulo e velocidade.</span><span class="en">Up to three people, with distance, angle and speed.</span></li><li><span class="pt">O painel já mostra o radar numa visão em setor.</span><span class="en">The dashboard already shows the radar as a sector view.</span></li><li><span class="pt">Em validação: o teste com a placa real está em andamento.</span><span class="en">In validation: testing on the real board is under way.</span></li></ul>
+    </div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 400 260">
+        <g class="rings"><path d="M40 236 A160 160 0 0 1 360 236"/><path d="M90 236 A110 110 0 0 1 310 236"/><path d="M140 236 A60 60 0 0 1 260 236"/><path d="M200 236 L200 76 M200 236 L87 123 M200 236 L313 123"/></g>
+        <g class="sweep"><path d="M200 236 L200 76 A160 160 0 0 1 313 123 Z"/></g>
+        <g class="blip b1"><circle cx="150" cy="150" r="6"/><circle cx="150" cy="150" r="6" class="pulse"/><text x="160" y="146" class="s-lbl">2,1 m</text></g>
+        <g class="blip b2"><circle cx="248" cy="118" r="6"/><circle cx="248" cy="118" r="6" class="pulse"/><text x="258" y="114" class="s-lbl">3,4 m</text></g>
+        <g class="blip b3"><circle cx="232" cy="196" r="6"/><circle cx="232" cy="196" r="6" class="pulse"/><text x="242" y="192" class="s-lbl">0,9 m</text></g>
+        <rect x="186" y="230" width="28" height="12" rx="3" class="esp"/>
+        <text x="16" y="24" class="s-h">24 GHz · <tspan class="pt">3 pessoas</tspan><tspan class="en">3 people</tspan></text>
+      </svg>
+    </div>
+  </article>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker"><span class="pt">Tripwire + câmera</span><span class="en">Tripwire + camera</span></p>
+      <h3><span class="pt">A sirene só toca quando sensor e câmera concordam</span><span class="en">The siren only sounds when sensor and camera agree</span></h3>
+      <p><span class="pt">Uma barreira invisível (laser ou ultrassom) no portão avisa quando alguém passa. Com o alarme armado, o hub confere se uma câmera viu uma pessoa na mesma zona e só então dispara a sirene. Menos alarme falso.</span><span class="en">An invisible beam (laser or ultrasonic) at the gate reports when someone crosses. With the alarm armed, the hub checks that a camera saw a person in the same zone, and only then sounds the siren. Fewer false alarms.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Regra padrão: sensor e pessoa na mesma zona em até 10 s.</span><span class="en">Default rule: sensor and person in the same zone within 10 s.</span></li><li><span class="pt">Arme e desarme o alarme pelo painel ou pelo celular.</span><span class="en">Arm and disarm from the dashboard or your phone.</span></li><li><span class="pt">Barreira e sirene em placas ESP32 baratas.</span><span class="en">Beam and siren on low-cost ESP32 boards.</span></li><li><span class="pt">Cada disparo fica no histórico com a foto da câmera.</span><span class="en">Every trigger stays in the history with the camera photo.</span></li></ul>
+    </div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 400 260">
+        <path d="M60 128 L280 40 L280 216 Z" class="cone"/>
+        <g transform="translate(22 112)"><rect width="40" height="32" rx="6" class="dev"/><circle cx="20" cy="16" r="8" class="lens"/></g>
+        <text x="16" y="164" class="s-lbl"><tspan class="pt">câmera</tspan><tspan class="en">camera</tspan></text>
+        <rect x="192" y="28" width="16" height="16" rx="3" class="post"/><rect x="192" y="200" width="16" height="16" rx="3" class="post"/>
+        <path d="M200 44 V200" class="beam"/>
+        <text x="214" y="40" class="s-lbl"><tspan class="pt">feixe no portão</tspan><tspan class="en">beam at the gate</tspan></text>
+        <g class="crosser"><circle cx="0" cy="96" r="10" class="s-person"/><rect x="-10" y="109" width="20" height="44" rx="8" class="s-person"/><rect x="-9" y="150" width="7" height="30" rx="3" class="s-person leg1"/><rect x="2" y="150" width="7" height="30" rx="3" class="s-person leg2"/><rect x="-22" y="80" width="44" height="106" rx="4" class="s-box tw-box"/></g>
+        <g class="siren"><g transform="translate(330 112)"><path d="M0 10 H10 L22 0 V30 L10 20 H0 Z" class="dev"/><path d="M28 6 Q34 15 28 24 M34 2 Q44 15 34 28" class="waves"/></g></g>
+        <text x="322" y="164" class="s-lbl"><tspan class="pt">sirene</tspan><tspan class="en">siren</tspan></text>
+        <g class="verdict"><rect x="96" y="226" width="208" height="26" rx="13" class="alarm-bg"/><text x="200" y="244" class="alarm-t"><tspan class="pt">sensor + câmera → sirene</tspan><tspan class="en">sensor + camera → siren</tspan></text></g>
+      </svg>
+    </div>
+  </article>
+
+  <article class="feat reveal">
+    <div class="txt">
+      <p class="kicker"><span class="pt">Tudo configurável</span><span class="en">Fully configurable</span></p>
+      <h3><span class="pt">Você ajusta tudo pelo painel</span><span class="en">You set everything from the dashboard</span></h3>
+      <p><span class="pt">Armar o alarme, ligar a detecção por câmera, escolher quem recebe os alertas, zonas da casa e sensibilidade. Em português ou inglês, no computador ou no celular, sem Terminal e sem arquivos.</span><span class="en">Arm the alarm, switch detection on per camera, choose who gets alerts, house zones and sensitivity. In Portuguese or English, on a computer or a phone, no Terminal and no files.</span></p>
+      <button class="plus" type="button"><span class="pt">Saiba mais</span><span class="en">Learn more</span> <i>+</i></button>
+      <ul class="more" hidden><li><span class="pt">Zonas da casa para cruzar sensores e câmeras.</span><span class="en">House zones to match sensors with cameras.</span></li><li><span class="pt">Login do dono e contas para a família.</span><span class="en">Owner login and accounts for the family.</span></li><li><span class="pt">Acesso remoto privado, desligado por padrão.</span><span class="en">Private remote access, off by default.</span></li><li><span class="pt">Instalável no celular, em português ou inglês.</span><span class="en">Installable on your phone, in Portuguese or English.</span></li></ul>
+    </div>
+    <div class="scene settings" aria-hidden="true">
+      <div class="panel">
+        <div class="row"><span><span class="pt">Alarme armado</span><span class="en">Alarm armed</span></span><i class="tg t1"></i></div>
+        <div class="row"><span><span class="pt">Detecção de pessoas · CAM 2</span><span class="en">Person detection · CAM 2</span></span><i class="tg t2 on"></i></div>
+        <div class="row"><span><span class="pt">Alertas no Telegram</span><span class="en">Telegram alerts</span></span><i class="tg t3"></i></div>
+        <div class="row col"><span><span class="pt">Sensibilidade</span><span class="en">Sensitivity</span></span><div class="slider"><b></b></div></div>
+        <div class="row"><span><span class="pt">Zona</span><span class="en">Zone</span></span><span class="chipsel"><span class="pt">Portão</span><span class="en">Gate</span></span></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section id="como" class="alt reveal">
   <h2><span class="pt">Como funciona</span><span class="en">How it works</span></h2>
   <ol class="steps">
     <li><b><span class="pt">Um hub em casa</span><span class="en">A hub at home</span></b><span class="pt">Um mini PC na sua rede recebe as câmeras e os sensores. Nada depende de servidor nosso para vigiar.</span><span class="en">A mini PC on your network takes in the cameras and sensors. Watching never depends on a server of ours.</span></li>
-    <li><b><span class="pt">Detecção de pessoas</span><span class="en">Person detection</span></b><span class="pt">Um modelo de visão (YOLO) roda no próprio hub e ignora o que não é gente, com um aviso por visita.</span><span class="en">A vision model (YOLO) runs on the hub itself and ignores anything that is not a person, with one alert per visit.</span></li>
-    <li><b><span class="pt">Alerta no Telegram</span><span class="en">Telegram alert</span></b><span class="pt">Você recebe uma foto do momento. Com o alarme armado, um sensor e uma câmera precisam concordar para disparar a sirene.</span><span class="en">You get a photo of the moment. With the alarm armed, a sensor and a camera must agree before the siren sounds.</span></li>
+    <li><b><span class="pt">Configure pelo painel</span><span class="en">Set it up in the dashboard</span></b><span class="pt">Adicione câmeras e sensores com um assistente, desenhe as zonas e ligue o Telegram.</span><span class="en">Add cameras and sensors with a wizard, draw the zones and connect Telegram.</span></li>
+    <li><b><span class="pt">Receba só o que importa</span><span class="en">Get only what matters</span></b><span class="pt">Pessoas, não sombras. Com o alarme armado, a sirene toca quando sensor e câmera concordam.</span><span class="en">People, not shadows. With the alarm armed, the siren sounds when sensor and camera agree.</span></li>
   </ol>
-</section>
-
-<section id="recursos" class="alt">
-  <h2><span class="pt">Recursos</span><span class="en">Features</span></h2>
   <ul class="cards">
     <li><b><span class="pt">Vídeo fica em casa</span><span class="en">Video stays home</span></b><span class="pt">Sem gravação na nuvem. Pensado para a LGPD.</span><span class="en">No cloud recording. Built with privacy law in mind.</span></li>
-    <li><b><span class="pt">Câmeras que você já tem</span><span class="en">Cameras you already have</span></b><span class="pt">Câmeras RTSP comuns, como as Yoosee, ao vivo no navegador e no celular.</span><span class="en">Standard RTSP cameras, such as Yoosee, live in the browser and on your phone.</span></li>
-    <li><b><span class="pt">Sensores ESP32</span><span class="en">ESP32 sensors</span></b><span class="pt">Sensores e sirenes baratos, adicionados pelo painel.</span><span class="en">Low-cost sensors and sirens, added from the dashboard.</span></li>
-    <li><b><span class="pt">Clipes e histórico</span><span class="en">Clips and history</span></b><span class="pt">Cada visita com foto e clipe curto, guardados num disco que você escolhe.</span><span class="en">Every visit with a photo and short clip, kept on a drive you choose.</span></li>
-    <li><b><span class="pt">Tudo pelo painel</span><span class="en">All from the dashboard</span></b><span class="pt">Configuração em português, sem Terminal e sem arquivos.</span><span class="en">Setup in Portuguese or English, no Terminal and no files.</span></li>
-    <li><b><span class="pt">Acesso remoto privado</span><span class="en">Private remote access</span></b><span class="pt">Veja o painel de fora de casa por uma rede privada, sem abrir portas no roteador.</span><span class="en">See the dashboard away from home over a private network, no router ports opened.</span></li>
+    <li><b><span class="pt">Clipes e histórico</span><span class="en">Clips and history</span></b><span class="pt">Cada visita com foto e clipe curto, num disco que você escolhe.</span><span class="en">Every visit with a photo and short clip, on a drive you choose.</span></li>
+    <li><b><span class="pt">Acesso remoto privado</span><span class="en">Private remote access</span></b><span class="pt">Veja o painel fora de casa por uma rede privada, sem abrir portas no roteador.</span><span class="en">See the dashboard away from home over a private network, no router ports opened.</span></li>
   </ul>
-  <p class="note"><span class="pt">Em fase de testes: o produto roda hoje numa casa real e está sendo preparado para outras.</span><span class="en">In testing: the product runs in a real home today and is being prepared for others.</span></p>
+  <p class="note"><span class="pt">Em fase de testes: o MaxWatch roda hoje numa casa real e está sendo preparado para outras.</span><span class="en">In testing: MaxWatch runs in a real home today and is being prepared for others.</span></p>
 </section>
 
-<section id="baixar">
+<section id="baixar" class="reveal">
   <h2><span class="pt">Baixar o beta</span><span class="en">Download the beta</span></h2>
   <div class="download">
-    <p><span class="pt">O instalador para Mac ainda está em preparação. Escreva para o contato abaixo e avisamos quando o beta sair.</span><span class="en">The Mac installer is still being prepared. Write to the contact below and we will tell you when the beta is out.</span></p>
-    <!-- TODO: trocar este botão pelo link de download do beta -->
-    <a class="btn disabled" aria-disabled="true"><span class="pt">Download (em breve)</span><span class="en">Download (soon)</span></a>
-    <p class="note"><span class="pt">Contato: <a href="mailto:contato@SEU-DOMINIO">contato@SEU-DOMINIO</a></span><span class="en">Contact: <a href="mailto:contato@SEU-DOMINIO">contato@SEU-DOMINIO</a></span></p>
+    <p><span class="pt">O pacote para Linux instala o MaxWatch inteiro (hub, detecção, painel) sem Docker, e ele inicia sozinho com o computador. Para Ubuntu 22.04+ ou Debian 12+.</span><span class="en">The Linux package installs all of MaxWatch (hub, detection, dashboard) without Docker, and it starts with the computer. For Ubuntu 22.04+ or Debian 12+.</span></p>
+    <div class="dl">
+      <!-- Para publicar: troque href="#baixar" pelo link do arquivo .tar.gz e remova class "disabled" e aria-disabled. -->
+      <a class="btn disabled" href="#baixar" aria-disabled="true"><span class="os">Linux</span> x86_64 <small><span class="pt">PC / mini PC Intel ou AMD · em breve</span><span class="en">Intel or AMD PC / mini PC · soon</span></small></a>
+      <a class="btn disabled" href="#baixar" aria-disabled="true"><span class="os">Linux</span> ARM64 <small><span class="pt">Raspberry Pi, VM em Mac M · em breve</span><span class="en">Raspberry Pi, VM on an M-series Mac · soon</span></small></a>
+      <a class="btn ghost disabled" aria-disabled="true"><span class="os">macOS</span> <small><span class="pt">em breve</span><span class="en">soon</span></small></a>
+    </div>
+    <p class="install"><span class="pt">Depois de baixar:</span><span class="en">After downloading:</span> <code>tar xzf maxwatch-*.tar.gz && cd maxwatch-* && sudo ./install.sh</code><br><span class="pt">Depois abra</span><span class="en">Then open</span> <code>http://localhost:8080</code></p>
+    <p class="note"><span class="pt">Ainda não publicamos os arquivos. Escreva para o contato abaixo e avisamos quando o beta sair.</span><span class="en">The files are not published yet. Write to the contact below and we will tell you when the beta is out.</span></p>
+    <p class="note"><span class="pt">Contato:</span><span class="en">Contact:</span> <a href="mailto:contato@SEU-DOMINIO">contato@SEU-DOMINIO</a></p>
   </div>
 </section>
 </main>
@@ -82,6 +250,7 @@
 <footer>
   <p><span class="pt">MaxWatch leva o nome do Max, o primeiro cachorro do criador. © 2026</span><span class="en">MaxWatch is named after Max, the creator's first dog. © 2026</span></p>
 </footer>
+<dialog id="more"><form method="dialog"><button class="x" aria-label="Fechar / Close">×</button></form><p class="kicker"></p><h3></h3><ul></ul></dialog>
 <script src="lang.js"></script>
 </body>
 </html>

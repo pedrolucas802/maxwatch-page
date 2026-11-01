@@ -8,12 +8,15 @@ Preview: `python3 -m http.server 8000` in this folder, then open http://localhos
 
 This repo is public and holds only the site, no product code. Settings > Pages > Source: *Deploy from a branch*, branch `main`, folder `/ (root)`. It goes live at `https://pedrolucas802.github.io/maxwatch-page/`. All links in the page are relative, so it works there and on a custom domain.
 
-## Custom domain, once bought
+## Custom domain
 
-1. In the domain's DNS add: four `A` records on the apex (`@`) to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a `CNAME` for `www` pointing to `pedrolucas802.github.io`. (Check GitHub's current list in the Pages docs.)
-2. Copy `CNAME.example` to `CNAME` and put your domain in it (one line, for example `maxwatch.com.br`). Or set it in Settings > Pages > Custom domain, which creates the same file.
-3. Wait for the DNS check, then tick *Enforce HTTPS*.
-4. Replace `contato@SEU-DOMINIO` in `index.html` with the real address.
+Live at https://maxwatch.pro (bought at Hostinger 2026-11-01, renews yearly). DNS at Hostinger: four `A` records on `@` to `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`, and `CNAME www` to `pedrolucas802.github.io`. The `CNAME` file in this repo holds the domain; GitHub wrote it from Settings > Pages.
+
+## Editing
+
+- Text lives twice in `index.html`: `<span class="pt">` and `<span class="en">`. Change both.
+- Animations are CSS only (`style.css`, bottom), and pause when off screen or when the visitor asks for reduced motion. `lang.js` handles the language switch, scroll reveals, the scroll-lit statement and the "Saiba mais" popups.
+- Download buttons: replace `href="#baixar"` with the `.tar.gz` link and remove `disabled` / `aria-disabled`.
 
 ## Brand and domain checklist
 
