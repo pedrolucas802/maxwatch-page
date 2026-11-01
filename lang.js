@@ -1,6 +1,6 @@
 (function () {
   var h = document.documentElement, k = 'mw-lang', saved = null;
-  var titles = { pt: 'MaxWatch · Segurança residencial que fica em casa', en: 'MaxWatch · Home security that stays home' };
+  var titles = { pt: 'MaxWatch · Segurança inteligente para a sua casa', en: 'MaxWatch · Home security that stays home' };
   try { saved = localStorage.getItem(k); } catch (e) {}
   var q = new URLSearchParams(location.search).get('lang');
   // ?lang= wins, then the saved choice, then the browser language (Portuguese default for pt-* browsers).
