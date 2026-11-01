@@ -1,0 +1,4 @@
+tools/secret.json
+tools/keys.private.json
+*.tar.gz
+*.tar.gz.enc
