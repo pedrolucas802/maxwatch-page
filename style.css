@@ -104,6 +104,7 @@ figcaption,.note{color:var(--muted);font-size:.9rem}
 .sweep path{fill:var(--teal);opacity:.22}
 .sweep{transform-origin:200px 236px;animation:sweep 3.2s ease-in-out infinite alternate}
 .blip circle{fill:var(--teal)}.blip .pulse{fill:none;stroke:var(--teal);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2s ease-out infinite}
+.dir{stroke:var(--teal);stroke-width:2.5;stroke-linecap:round;marker-end:url(#arw)}
 .blip{animation:drift 6s ease-in-out infinite alternate}.b2{animation-duration:7s;animation-delay:-2s}.b3{animation-duration:5s;animation-delay:-1s}
 .leg1,.leg2{transform-box:fill-box;transform-origin:50% 0;animation:leg .5s ease-in-out infinite alternate}.leg2{animation-direction:alternate-reverse}
 .post{fill:#3a5a8c}.cone{fill:var(--teal);opacity:.08}.head{fill:#8ea3c4}
@@ -142,6 +143,7 @@ figcaption,.note{color:var(--muted);font-size:.9rem}
 /* steps + cards */
 .steps,.cards{padding:0;margin:0;list-style:none;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .cards{margin-top:16px}
+.intro{color:var(--muted);font-size:1.1rem;max-width:40em;margin:0 0 24px}.cta{margin:24px 0 0}
 .steps{counter-reset:s}
 .steps li,.cards li{background:var(--bg);border-radius:20px;padding:24px}
 .steps li{counter-increment:s}
@@ -153,9 +155,10 @@ li b{display:block;margin-bottom:4px}
 .download{background:var(--card);border-radius:28px;padding:40px 24px;text-align:center}
 .download>p:first-child{max-width:34em;margin:0 auto 24px}
 .dl{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.dl .btn{display:flex;flex-direction:column;align-items:center;min-width:220px;padding:14px 24px;border-radius:18px;line-height:1.3}
-.dl .btn small{font-weight:400;font-size:.78rem;opacity:.85}
-.dl .os{font-size:1.1rem}
+.dl{align-items:flex-start}.opt{display:flex;flex-direction:column;align-items:center;gap:8px}
+.dl .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:180px;padding:14px 28px;font-size:1.1rem}
+.dl .ic{width:22px;height:22px;fill:currentColor}
+.opt small{color:var(--muted);font-size:.8rem;line-height:1.5}
 .install{margin:24px auto 8px;color:var(--muted);font-size:.9rem;line-height:2}
 
 /* dialog */
