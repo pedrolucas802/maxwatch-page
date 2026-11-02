@@ -104,6 +104,7 @@ figcaption,.note{color:var(--muted);font-size:.9rem}
 .sweep path{fill:var(--teal);opacity:.22}
 .sweep{transform-origin:200px 236px;animation:sweep 3.2s ease-in-out infinite alternate}
 .blip circle{fill:var(--teal)}.blip .pulse{fill:none;stroke:var(--teal);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2s ease-out infinite}
+.dir{stroke:var(--teal);stroke-width:2.5;stroke-linecap:round;marker-end:url(#arw)}
 .blip{animation:drift 6s ease-in-out infinite alternate}.b2{animation-duration:7s;animation-delay:-2s}.b3{animation-duration:5s;animation-delay:-1s}
 .leg1,.leg2{transform-box:fill-box;transform-origin:50% 0;animation:leg .5s ease-in-out infinite alternate}.leg2{animation-direction:alternate-reverse}
 .post{fill:#3a5a8c}.cone{fill:var(--teal);opacity:.08}.head{fill:#8ea3c4}
@@ -142,6 +143,7 @@ figcaption,.note{color:var(--muted);font-size:.9rem}
 /* steps + cards */
 .steps,.cards{padding:0;margin:0;list-style:none;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .cards{margin-top:16px}
+.intro{color:var(--muted);font-size:1.1rem;max-width:40em;margin:0 0 24px}.cta{margin:24px 0 0}
 .steps{counter-reset:s}
 .steps li,.cards li{background:var(--bg);border-radius:20px;padding:24px}
 .steps li{counter-increment:s}
