@@ -26,7 +26,9 @@ Open http://localhost:8000 (add `?lang=en` for English). The beta key unlock als
 | `unlock.js` | Checks a beta key in the browser and shows the install command |
 | `keys.json` | Public list of sealed beta keys (written by `tools/keys.mjs`) |
 | `tools/keys.mjs` | Command line tool to publish a release and add or revoke beta keys |
-| `favicon.svg`, `CNAME`, `.nojekyll` | Icon, custom domain, and "serve files as they are" for GitHub Pages |
+| `favicon.svg`, `apple-touch-icon.png`, `og-image.png` | Logo icon, Home Screen icon and the picture shown when the link is shared (1200x630) |
+| `fonts/` | Inter (SIL Open Font License, licence file included), the one MaxWatch typeface, served from here |
+| `CNAME`, `.nojekyll` | Custom domain, and "serve files as they are" for GitHub Pages |
 
 ### Page sections
 
@@ -37,6 +39,10 @@ Open http://localhost:8000 (add `?lang=en` for English). The beta key unlock als
 | Features | `#recursos` | Six cards: edge AI, real-time alerts, cameras and hardware, mmWave radar, tripwire + camera, settings |
 | How we help | `#como` | The three service steps plus privacy, clips and remote access |
 | Beta version | `#baixar` | Key unlock, "request access" email, Linux and macOS buttons |
+
+## Brand
+
+Logo, colours, typeface and tone follow the shared kit in `docs/brand.md` of the hub repo (`pedrolucas802/maxwatch`). The site's CSS variables (`--navy`, `--teal`, `--blue`, `--red`) use the same values; `--red` is the single alarm red `#D64545`. The icon files are copies of the hub's: update them together.
 
 ## Editing
 
