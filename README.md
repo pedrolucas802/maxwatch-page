@@ -36,7 +36,7 @@ Open http://localhost:8000 (add `?lang=en` for English). The beta key unlock als
 | --- | --- | --- |
 | Hero | top | Headline, short pitch, a mock dashboard |
 | Statement | none | The big sentence that lights up word by word while scrolling |
-| Features | `#recursos` | Six cards: edge AI, real-time alerts, cameras and hardware, mmWave radar, tripwire + camera, settings |
+| Features | `#recursos` | Seven cards: edge AI, real-time alerts (Telegram, phone, daily PDF), cameras and hardware, mmWave radar, alarm (radar or camera alone, beam + camera), home network, settings |
 | How we help | `#como` | The three service steps plus privacy, clips and remote access |
 | Beta version | `#baixar` | Key unlock, "request access" email, Linux and macOS buttons |
 
